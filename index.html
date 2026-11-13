@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <!-- Mengimpor font tulisan tangan dari Google Fonts -->
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link href="https://googleapis.com" rel="stylesheet">
+
+    <style type="text/css">
+        body {
+            font-family: 'Indie Flower', cursive !important;
+            background: #FDE3A7; /* Warna latar belakang alternatif */
+            background-color: #e899b8; /* Warna pink lembut sesuai video */
+            margin: 0px;
+            padding: 0px;
+        }
+
+        ::selection {
+            background: transparent;
+        }
+
+        h4 {
+            font-size: 26px;
+            line-height: 1px;
+            font-family: 'Amatic SC', cursive !important;
+        }
+
+        .color1 {
+            color: #1BBC9B; /* Hijau Tosca */
+        }
+
+        .color2 {
+            color: #C0392B; /* Merah Bata */
+        }
+
+        .card {
+            color: #013243; /* Warna teks isi kartu */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 380px;
+            height: 520px;
+            background: #e0e1dc;
+            transform-style: preserve-3d;
+            transform: translate(-50%, -50%) perspective(2000px);
+            box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5), 20px 0 60px rgba(0, 0, 0, .5);
+            transition: 1s;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.1);
+            box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 10px 100px rgba(0, 0, 0, .5);
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #BAC1BA;
+            transform-origin: bottom;
+            transform: skewX(-45deg);
+        }
+
+        .card:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -5px;
+            width: 5px;
+            height: 100%;
+            background: #92A29C;
+            transform-origin: left;
+            transform: skewY(-45deg);
+        }
+
+        .card .imgBox {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-origin: left;
+            transition: .7s;
+        }
+
+        .card .bark {
+            position: absolute;
+            background: #e0e1dc;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: .7s;
+        }
+
+        .card .imgBox img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card:hover .imgBox {
+            transform: rotateY(-135deg);
+        }
+
+        .card:hover .bark {
+            opacity: 1;
+            transition: .6s;
+            box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+        }
+
+        .card .details {
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-sizing: border-box;
+            padding: 0 0 0 15px;
+            z-index: -1;
+            margin-top: 30px;
+        }
+
+        .card .details p {
+            font-size: 12px;
+            line-height: 10px;
+            transform: rotate(-7deg);
+            padding: 0 0 0 15px;
+        }
+
+        .card .details h4 {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+            padding-right: 15px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="imgBox">
+            <div class="bark"></div>
+            <!-- Ganti 'cover.jpg' dengan nama file gambar sampul depan kartu Anda -->
+            <img src="cover.jpg" alt="Happy Birthday Cover">
+        </div>
+        <div class="details">
+            <h4 class="color1">HAPPY BIRTHDAY</h4>
+            <h4 class="color2">To Cehaaaaaa</h4>
+            <p>Happy Birthday cehaa,</p>
+            <p>may u always be blessed with good health,</p>
+            <p>endless happiness,</p>
+            <p>and success in everything u do.</p>
+            <p>I hope u continue to grow into an</p>
+            <p>even better version of yourself</p>
+            <p>and that all your dreams and goals</p>
+            <p>slowly turn into reality.</p>
+            <p>May every step you take lead u to</p>
+            <p>beautiful opportunities,</p>
+            <p>wonderful experiences,</p>
+            <p>and amazing people along the way.</p>
+            <p>enjoy your special day</p>
+            
+            <p class="text-right">-Dimin and the gang</p>
+            <p class="text-right"></p>
+        </div>
+
+        <!-- Ganti 'musik/love.mp3' dengan lokasi file musik Anda -->
+        <audio autoplay loop id="lagu">
+            <source src="musik/music.mp4" type="audio/mp4">
+        </audio>
+    </div>
+
+    <!-- Script tambahan agar musik otomatis menyala saat kartu diklik/disentuh -->
+    <script>
+        document.querySelector('.card').addEventListener('click', function() {
+            var audio = document.getElementById('lagu');
+            if (audio.paused) {
+                audio.play();
+            }
+        });
+    </script>
+
+</body>
+</html>
